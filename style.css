@@ -1,0 +1,13 @@
+#chart{
+	font-family: monospace;
+}
+
+body {
+	background-color: black;
+  }
+
+h1 {
+	font-family: 'Courier New';
+	color: white ;
+	font-weight:normal;
+}
