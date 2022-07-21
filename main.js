@@ -61,7 +61,7 @@ Promise.all([
 			}
 		})
 		.attr("cy", (d) => (d.location ? d.location[1] : null))
-		.attr("r", 5)
+		.attr("r", 4.5)
 		.attr("fill", "rgba(222,254,91,0.8)")
 		.attr("stroke", "rgba(222,254,91,1)")
 
@@ -110,7 +110,7 @@ Promise.all([
             let waitMS = yearMS * year +  month * yearMS / 12 + day * yearMS / 365
             return waitMS
         })
-        .duration(400)
+        .duration(300)
         .style("opacity", 1)
         .remove()
 
@@ -155,7 +155,34 @@ Promise.all([
         // .delay(1000)
         // .style("opacity", 0)
 
+	g.selectAll("path")
+			.attr("opacity", 0)
+
+	// svg.selectAll("#circles")
+	// 		.attr("opacity", 0)
+	const scroller = scrollama();
+	let interval = null
+
+	scroller
+	.setup({
+		step: ".step",
+		offset: 0.5
+	})
+
+	.onStepEnter((response) => {
+		if (response.index === 1) {
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", 1)
+		}
+
+	})
+
+
+
 });
+
+
 
 // svg flexbox look it up later
 // change .delay to be a calculation based on time stamp

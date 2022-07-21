@@ -9,5 +9,60 @@ body {
 h1 {
 	font-family: 'Courier New';
 	color: white ;
+	font-weight:bolder;
+}
+
+h2 {
+	font-family: 'Courier New';
+	color: white ;
+	font-weight:bold;
+}
+
+h3 {
+	font-family: 'Courier New';
+	color: white ;
+	font-weight:bold;
+}
+
+h4 {
+	font-family: 'Courier New';
+	color: white ;
+	font-weight:bold;
+}
+
+p  {
+	font-family: 'Courier New';
+	color: white ;
 	font-weight:normal;
+}
+
+main {
+	align-items: flex-end; 
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.step {
+	color: white;
+	margin: 0;
+	margin-bottom: 50vh;
+	height: 25vh;
+	position: relative;
+	z-index: 20;
+}
+
+.step p {
+	background-color: rgba(0, 0, 0, 0.35);
+	width: 500px;
+	max-width: 90%;
+	padding: 10px;
+	margin: 0;
+}
+
+#map {
+	position: fixed;
+	top: 10rem;
+	left: 0 ;
+
 }
