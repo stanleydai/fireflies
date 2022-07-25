@@ -180,11 +180,11 @@ Promise.all([
 
 			d3.select("#Illinois")
 				.attr("fill", "grey")
-				.attr("opacity", .5)
+				.attr("opacity", 1)
 
 			g.selectAll("text")
 				.transition(100)
-				.attr("opacity", .5)
+				.attr("opacity", 1)
 
 
 				g.selectAll("circle")
@@ -199,11 +199,11 @@ Promise.all([
 
 			d3.select("#Louisiana")
 				.attr("fill", "grey")
-				.attr("opacity", .5)
+				.attr("opacity", 1)
 
 			d3.select("#Iowa")
 				.attr("fill", "grey")
-				.attr("opacity", .5)
+				.attr("opacity", 1)
 
 			g.selectAll("text")
 				.transition(100)
@@ -211,6 +211,32 @@ Promise.all([
 
 
 		}
+		else if (response.index === 20) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", .7)
+
+
+			g.selectAll("text")
+				.attr("opacity", .7)
+
+
+		}
+
+		else if (response.index === 21) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", .3)
+
+
+			g.selectAll("text")
+				.attr("opacity", .3)
+
+
+		}
+
 		else if (response.index === 22) {
 
 			g.selectAll("path")
