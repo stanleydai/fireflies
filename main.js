@@ -105,7 +105,7 @@ Promise.all([
 			svg.select("#first-date")
 			.text(dstr)
 
-		  }, 82.19)
+		  }, 85)
 		// g.selectAll("circle")
         // .style("opacity", 0)
 		// .transition()
