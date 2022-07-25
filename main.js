@@ -40,9 +40,10 @@ Promise.all([
 		.append("path")
 		.attr("class", "state")
 		.attr("stroke", "rgba(255, 255, 255, .5)")
+		.attr("d", path)
+		.attr("id", d => d.properties.name) ;
 
-		.attr("d", path) ;
- 
+		console.log(path) 
 
 	// circles
 	g.selectAll("circle")
@@ -65,39 +66,6 @@ Promise.all([
 		.attr("fill", "rgba(222,254,91,0.8)")
 		.attr("stroke", "rgba(222,254,91,1)")
 
-
-
-        // g.selectAll("circle")
-        // .style("visibility", 'hidden')
-		// .transition()
-        // .delay(function(d) {
-        //     let yearMS = 10000
-        //     let year = d.date.getFullYear() - 2008
-        //     let month = d.date.getMonth() - 1
-        //     let day = d.date.getDay() - 1
-        //     let waitMS = yearMS * year +  month * yearMS / 12 + day * yearMS / 365
-        //     return waitMS
-        // })
-        // .style("visibility", 'visible')
-        // .transition()
-        // .delay(500)
-		// .remove()
-
-		// g.selectAll("circle")
-        // .style("visibility", 'hidden')
-		// .transition()
-        // .delay(function(d) {
-        //     let yearMS = 10000
-        //     let year = d.date.getFullYear() - 2008
-        //     let month = d.date.getMonth() - 1
-        //     let day = d.date.getDay() - 1
-        //     let waitMS = yearMS * year +  month * yearMS / 12 + day * yearMS / 365
-        //     return waitMS
-        // })
-        // .style("visibility", 'visible')
-        // .transition()
-        // .delay(1000)
-        // .remove() ;
 
         g.selectAll("circle")
         .style("opacity", 0)
@@ -122,7 +90,6 @@ Promise.all([
 		.style('fill', 'white')
 		.attr("font-family", "Courier New")
 
-
 		setInterval(function() {
 
 			if (begindateinms >= 1490598000000) {
@@ -138,7 +105,7 @@ Promise.all([
 			svg.select("#first-date")
 			.text(dstr)
 
-		  }, 100)
+		  }, 82.19)
 		// g.selectAll("circle")
         // .style("opacity", 0)
 		// .transition()
@@ -158,8 +125,13 @@ Promise.all([
 	g.selectAll("path")
 			.attr("opacity", 0)
 
-	// svg.selectAll("#circles")
-	// 		.attr("opacity", 0)
+	g.selectAll("text")
+			.attr("opacity", 0)
+
+	g.selectAll("circle")
+		  .attr("opacity", 0)
+
+
 	const scroller = scrollama();
 	let interval = null
 
@@ -170,12 +142,88 @@ Promise.all([
 	})
 
 	.onStepEnter((response) => {
+			console.log(response.index)
 		if (response.index === 1) {
 			g.selectAll("path")
 				.transition(100)
 				.attr("opacity", 1)
+
+			g.selectAll("text")
+				.transition(100)
+				.attr("opacity", 1)
+
+			g.selectAll("circle")
+				.attr("visibility", "visible")
 		}
 
+		else if (response.index === 12) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", 0)
+
+
+			g.selectAll("text")
+				.transition(100)
+				.attr("opacity", 0)
+
+
+			g.selectAll("circle")
+			.attr("opacity", 0)
+		}
+
+		else if (response.index === 14) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", 1)
+
+			d3.select("#Illinois")
+				.attr("fill", "grey")
+				.attr("opacity", .5)
+
+			g.selectAll("text")
+				.transition(100)
+				.attr("opacity", .5)
+
+
+				g.selectAll("circle")
+				.attr("opacity", 1)
+		}
+
+		else if (response.index === 15) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", 1)
+
+			d3.select("#Louisiana")
+				.attr("fill", "grey")
+				.attr("opacity", .5)
+
+			d3.select("#Iowa")
+				.attr("fill", "grey")
+				.attr("opacity", .5)
+
+			g.selectAll("text")
+				.transition(100)
+				.attr("opacity", .5)
+
+
+		}
+		else if (response.index === 22) {
+
+			g.selectAll("path")
+				.transition(100)
+				.attr("opacity", 0)
+
+
+			g.selectAll("text")
+				.attr("opacity", 0)
+
+			g.selectAll("circle")
+				.remove()
+		}
 	})
 
 
