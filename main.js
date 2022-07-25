@@ -222,7 +222,7 @@ Promise.all([
 				.attr("opacity", 0)
 
 			g.selectAll("circle")
-				.remove()
+			.attr("visibility", "hidden")
 		}
 	})
 
